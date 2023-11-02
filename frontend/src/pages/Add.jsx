@@ -11,8 +11,6 @@ function Add() {
 
   const handler = async () => {
 
-    return // for now
-
     const data = {
       title: titleRef.current.value,
       dates: timeRef.current.value,
