@@ -26,6 +26,7 @@ function Add() {
     }).then((response) => {
       if (response.status == 200) {
         alert("Berhasil menambahkan todo")
+        navigate("/")
       } else if (response.status == 400) {
         alert("Gagal menambahkan todo")
       }
@@ -49,7 +50,7 @@ function Add() {
           </div>
           <div className='grid gap-4'>
             <label className='font-semibold'>When do you want todo?</label>
-            <Input ref={timeRef} type="datetime-local"/>
+            <Input ref={timeRef} type="datetime-local" required={true}/>
           </div>
           <div className='grid gap-4'>
             <label className='font-semibold'>Where do you want todo?</label>

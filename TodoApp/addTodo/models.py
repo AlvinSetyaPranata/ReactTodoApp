@@ -7,3 +7,6 @@ class TodoModel(models.Model):
     title = models.CharField(verbose_name="title", max_length=255, default="Untitled")
     dates = models.DateTimeField(verbose_name="date")
     place = models.CharField(verbose_name="place", default="Not specified", max_length=255)
+
+    def __str__(self):
+        return str(self.title)

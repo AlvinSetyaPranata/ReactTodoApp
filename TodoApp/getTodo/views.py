@@ -5,6 +5,6 @@ from addTodo.models import TodoModel
 
 # Create your views here.
 def getTodoView(req):
-    data = serializers.serialize("json", TodoModel.objects.all())
+    data = [x["fields"] for x in serializers.serialize("python", TodoModel.objects.all())]
 
-    return JsonResponse(data)
+    return JsonResponse(data, safe=False)

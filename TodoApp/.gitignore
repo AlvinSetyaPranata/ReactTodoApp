@@ -3,3 +3,6 @@ bin
 lib
 **/__pycache__
 Scripts
+**/*.sqlite3
+**/*.sqlite
+**/*.db

@@ -20,6 +20,7 @@ from getTodo.views import getTodoView
 from addTodo.views import (addTodoView, getCsrfTokenView)
 from deleteTodo.views import deleteTodoView
 from django.shortcuts import render
+from django.contrib import admin
 
 from django.views.generic import TemplateView
 
@@ -28,5 +29,6 @@ urlpatterns = [
     path("api/add/", addTodoView),
     path("api/delete/", deleteTodoView),
     path("api/getCsrf/", getCsrfTokenView),
+    path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),
 ]

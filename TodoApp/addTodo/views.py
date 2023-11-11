@@ -15,13 +15,15 @@ from .serializers import AddTodoSerialize
 def addTodoView(req):
     data = req.data
 
+    # print(data)
+
     serializer = AddTodoSerialize(data=data)
 
     if serializer.is_valid(raise_exception=True):
         serializer.save()
-        return JsonResponse({})
+        return JsonResponse({}, safe=False)
 
-    return JsonResponse({})
+    return JsonResponse({}, safe=False)
 
 
     # model = TodoModel
