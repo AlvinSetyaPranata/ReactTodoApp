@@ -7,4 +7,4 @@ applikasi ini adalah sebuah applikasi todo-app sederhana yang dapat membantu ora
 ![](https://img.shields.io/badge/Code-React-informational?style=flat&logo=react&color=61DAFB)
 ![](https://img.shields.io/badge/Code-Django-informational?style=flat&logo=Django&color=092E20)
 
-# Sekian Terimakasih
+*Sekian Terimakasih*
