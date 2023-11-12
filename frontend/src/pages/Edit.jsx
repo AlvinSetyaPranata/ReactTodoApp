@@ -49,7 +49,7 @@ function Edit() {
        </div>
        <div className='grid gap-4'>
          <label className='font-semibold'>When do you want todo?</label>
-         <Input defaultValue={dateParser(state.date)} placeholder={dateParser(state.date)} ref={timeRef} type="text" onFocus={(e) => {e.target.type = "datetime-local"}} onBlur={(e) => {e.target.type ="text"}}/>
+         <Input defaultValue={state.date} placeholder={state.date} ref={timeRef} type="text" onFocus={(e) => {e.target.type = "datetime-local"}} onBlur={(e) => {e.target.type ="text"}}/>
        </div>
        <div className='grid gap-4'>
          <label className='font-semibold'>Where do you want todo?</label>

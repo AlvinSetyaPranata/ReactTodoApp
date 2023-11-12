@@ -24,7 +24,7 @@ function Add() {
       },
       body: JSON.stringify(data)
     }).then((response) => {
-      if (response.status == 200) {
+      if (response.status == 201) {
         alert("Berhasil menambahkan todo")
         navigate("/")
       } else if (response.status == 400) {

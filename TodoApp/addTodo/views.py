@@ -3,9 +3,8 @@ from django.middleware.csrf import get_token
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie, csrf_protect
 
 from rest_framework.decorators import api_view
-from rest_framework.status import (
-    HTTP_400_BAD_REQUEST
-)
+from rest_framework import status
+from rest_framework.response import Response
 
 from .models import TodoModel
 from .serializers import AddTodoSerialize
@@ -21,13 +20,9 @@ def addTodoView(req):
 
     if serializer.is_valid(raise_exception=True):
         serializer.save()
-        return JsonResponse({}, safe=False)
+        return Response({"messege" : "Data telah ditambahkan"}, status=status.HTTP_201_CREATED)
 
-    return JsonResponse({}, safe=False)
-
-
-    # model = TodoModel
-
+    return Response({"messege" : "Data tidak valid"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 

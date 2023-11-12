@@ -1,7 +1,7 @@
 export function dateParser(date) {
     const newDate = new Date(date)
 
-    return `${newDate.getMonth()}-${newDate.getDate()}-${newDate.getFullYear()}`
+    return `${newDate.getMonth()}-${newDate.getDate()}-${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}`
 }
 
 
