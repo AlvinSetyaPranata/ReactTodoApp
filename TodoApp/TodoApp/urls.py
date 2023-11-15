@@ -16,19 +16,23 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path, re_path
-from getTodo.views import getTodoView
-from addTodo.views import (addTodoView, getCsrfTokenView)
+from getTodo.views import getTodoView, renderTodoView
+from addTodo.views import (addTodoView, getCsrfTokenView, editTodoView)
 from deleteTodo.views import deleteTodoView
-from django.shortcuts import render
 from django.contrib import admin
-
-from django.views.generic import TemplateView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from .settings import DEBUG
 
 urlpatterns = [
     path("api/get/", getTodoView),
+    path("api/edit/", editTodoView),
     path("api/add/", addTodoView),
     path("api/delete/", deleteTodoView),
     path("api/getCsrf/", getCsrfTokenView),
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='index.html')),
+    path('', renderTodoView),
 ]
+
+
+# if DEBUG:
+#     urlpatterns += staticfiles_urlpatterns()

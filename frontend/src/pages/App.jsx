@@ -13,14 +13,19 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(data)
-
     fetch("http://127.0.0.1:8000/api/get/", {
       method: "get",
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status == 404) {
+          alert("Server tidak merespon")
+          return []
+        } else {
+          return res.json()
+        }
+      })
       .then((data) => setData(data))
-      .catch((res) => alert("Failed to fetch data"))
+      .catch(() => alert("Failed to fetch data"))
   }, [])
 
 
@@ -34,8 +39,7 @@ function App() {
 
       <div className="grid gap-4">
       {/* dynamic */}
-      {!data||data.length==0 && <p>No Todo Right now</p>}
-      {data.map((value, index) => {
+      {data.length >= 1 ? data.map((value, index) => {
         return (
           <div className="grid gap-6 bg-slate-300 px-4 py-4 rounded-md  relative hover:cursor-pointer" onClick={() => setActive({index: index, status: !active.active})} key={index}>
           <div className="bg-green-600 rounded-full absolute -right-5 -top-3 p-2" onClick={() => handleEdit(index)}>
@@ -52,7 +56,7 @@ function App() {
           <p className={`${active.index==index && active.status ? 'block' : 'hidden'}`}>{value.place}</p>
         </div>
         )
-      })}
+      }) : ''}
 
 
 
